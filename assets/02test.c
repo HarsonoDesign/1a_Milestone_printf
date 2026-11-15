@@ -1,21 +1,32 @@
-// #include "ft_printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
-#include <unistd.h>
-
 
 int	test2_printf(const char *format, ...)
 {
 	va_list	arg;
 	int		i;
+	int		count;
 
 	va_start(arg, format);
 
 	i = 0;
-	while (format[i] != '\0')
+	count = 0;
+	while (format[i] != '\0' && format[i + 1] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] == '%')
+		//printf("i: %i --- char: %c\n", i, format[i]);
+		// if (format[i] == '%' && format[i + 1] == '%')
+		// {
+		// 	ft_putchar(format[i]);
+		// 	i = i + 2;
+		// }
+		if (format[i] == '%' && format[i + 1] == 's')
 		{
-			
+			count += ft_putstr(va_arg(arg, char *));
+			i = i + count;
+		}
+		else
+		{
+			ft_putchar(format[i]);
 		}
 		i++;
 	}
@@ -25,10 +36,12 @@ int	test2_printf(const char *format, ...)
 
 int	main(void)
 {
-	test2_printf("Poging1");
+	char	str2[] = "codam";
+
+	test2_printf("hello %s", str2);
 	test2_printf("\n");
 
-	printf("Poging1");
+	printf("hello %s", str2);
 	printf("\n");
 
 	return (0);

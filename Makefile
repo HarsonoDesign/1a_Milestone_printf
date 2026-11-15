@@ -4,10 +4,11 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 HEADER = ft_printf.h
 
-SRC = 	ft_printf.c \
-		ft_printf_utils.c
+SRC = 	ft_printf_utils_char.c \
+		ft_printf_utils_int.c \
+		#ft_printf.c 
 
-OBJ = $(SRC: .c=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
@@ -21,7 +22,7 @@ clean:
 	rm -f $(OBJ)
 
 fclean:
-	rm-f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

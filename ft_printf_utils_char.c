@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf_utils.c                                  :+:    :+:            */
+/*   ft_printf_utils_char.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nkalff <nkalff@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/11/07 20:05:26 by nkalff        #+#    #+#                 */
-/*   Updated: 2026/11/13 14:49:49 by nkalff        ########   odam.nl         */
+/*   Created: 2026/11/15 17:06:52 by nkalff        #+#    #+#                 */
+/*   Updated: 2026/11/15 17:46:08 by nkalff        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c)
+#include "ft_printf.h"
+
+int	ft_putchar(char c)
 {
 	write (1, &c, 1);
+	return (1);
 }
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-	if (!str)
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		return ;
+		write (1, &str[i], 1);
+		i++;
 	}
-	write(1, str, ft_strlen(str));
+	return (i);
 }

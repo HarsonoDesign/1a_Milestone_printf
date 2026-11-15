@@ -6,13 +6,11 @@
 /*   By: nkalff <nkalff@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/07 20:04:36 by nkalff        #+#    #+#                 */
-/*   Updated: 2026/11/13 14:49:34 by nkalff        ########   odam.nl         */
+/*   Updated: 2026/11/15 17:09:22 by nkalff        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-
+#include "ft_printf.h"
 
 int	ft_printf(const char *format, ...)
 {
