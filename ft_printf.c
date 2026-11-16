@@ -15,17 +15,20 @@
 int	ft_specifier(char fs, va_list arg)
 {
 	if (fs == 'c')
-	{
-		return (ft_putchar(va_arg(arg, char)));
-	}	
-	if (fs == 's')
-	{
+		return (ft_putchar(va_arg(arg, int)));
+	else if (fs == 's')
 		return (ft_putstr(va_arg(arg, char *)));
-	}
-	if (fs == 'd')
-	{
-		return (ft_putnbr(va_arg(arg, int)));
-	}
+	else if (fs == 'p')
+		return (ft_putnbr_uns(va_arg(arg, void *), BASE_HEX_LOW));
+	else if (fs == 'd' || fs == 'i')
+		return (ft_putnbr_sign(va_arg(arg, int), BASE_DEC));
+	else if (fs == 'u')
+		return (ft_putnbr_uns(va_arg(arg, unsigned int), BASE_DEC));
+	else if (fs == 'x')
+		return (ft_putnbr_uns(va_arg(arg, unsigned int), BASE_HEX_LOW));
+	else if (fs == 'X')
+		return (ft_putnbr_uns(va_arg(arg, unsigned int), BASE_HEX_UP));
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)
@@ -34,8 +37,11 @@ int	ft_printf(const char *format, ...)
 	int		i;
 	int		count;
 
+	if (!format)
+	{
+		return (-1);
+	}
 	va_start(arg, format);
-
 	i = 0;
 	count = 0;
 	while (format[i] != '\0')
@@ -54,4 +60,3 @@ int	ft_printf(const char *format, ...)
 	va_end(arg);
 	return (count);
 }
-

@@ -16,10 +16,16 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-// -------------------------------------------------- print char to char
-int		ft_putchar(char c);
-int		ft_putstr(char *str);
-// -------------------------------------------------- print int to char
-int		ft_putnbr_base(int n);
+# define BASE_DEC "0123456789"
+# define BASE_HEX_LOW "0123456789abcdef"
+# define BASE_HEX_UP "0123456789ABCDEF"
+
+int	            ft_printf(const char *format, ...);
+int	            ft_specifier(char fs, va_list arg);
+int		        ft_putchar(char c);
+int		        ft_putstr(const char *str);
+unsigned long	ft_baselen(const char *base);
+int	            ft_putnbr_uns(unsigned long nbr, const char *base);
+int	            ft_putnbr_sign(long nbr, const char *base);
 
 #endif
