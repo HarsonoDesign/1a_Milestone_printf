@@ -11,37 +11,43 @@ int	test2_printf(const char *format, ...)
 
 	i = 0;
 	count = 0;
-	while (format[i] != '\0' && format[i + 1] != '\0')
+	while (format[i] != '\0')
 	{
-		//printf("i: %i --- char: %c\n", i, format[i]);
-		// if (format[i] == '%' && format[i + 1] == '%')
-		// {
-		// 	ft_putchar(format[i]);
-		// 	i = i + 2;
-		// }
-		if (format[i] == '%' && format[i + 1] == 's')
+		if (format[i] == '%' && format[i + 1] == '%')
+		{
+			count += ft_putchar('%');
+			i = i + 2;
+		}
+		else if (format[i] == '%' && format[i + 1] == 's')
 		{
 			count += ft_putstr(va_arg(arg, char *));
-			i = i + count;
+			i = i + 2;
+		}
+		else if (format[i] == '%' && format[i + 1] == 'd')
+		{
+			count += ft_putnbr_base(va_arg(arg, int));
+			i = i + 2;
 		}
 		else
 		{
-			ft_putchar(format[i]);
+			count += ft_putchar(format[i]);
+			i++;
 		}
-		i++;
 	}
 	va_end(arg);
-	return (i);
+	return (count);
 }
 
 int	main(void)
 {
-	char	str2[] = "codam";
+	char	str02[] = "codam";
+	int		nbr02 = -123;
 
-	test2_printf("hello %s", str2);
+
+	test2_printf("hello %s %d", str02, nbr02);
 	test2_printf("\n");
 
-	printf("hello %s", str2);
+	printf("hello %s", str02);
 	printf("\n");
 
 	return (0);

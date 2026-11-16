@@ -6,7 +6,7 @@
 /*   By: nkalff <nkalff@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/15 17:06:52 by nkalff        #+#    #+#                 */
-/*   Updated: 2026/11/15 17:46:08 by nkalff        ########   odam.nl         */
+/*   Updated: 2026/11/16 17:17:09 by nkalff        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_putchar(char c)
 {
-	write (1, &c, 1);
-	return (1);
+	return (write (1, &c, 1));
 }
 
 int	ft_putstr(char *str)

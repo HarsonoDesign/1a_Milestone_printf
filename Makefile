@@ -32,8 +32,7 @@ re: fclean all
 # ------------------------------------- Test Files
 TEST_DIR = assets
 
-TEST_FILES = 	01test.c \
-				02test.c
+TEST_FILES = 01test.c 02test.c 03test.c 04test.c
 
 TEST_EXE = $(TEST_FILES:.c=)
 
