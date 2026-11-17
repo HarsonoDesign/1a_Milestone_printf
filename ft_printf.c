@@ -6,7 +6,7 @@
 /*   By: nkalff <nkalff@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/07 20:04:36 by nkalff        #+#    #+#                 */
-/*   Updated: 2026/11/17 15:14:38 by nkalff        ########   odam.nl         */
+/*   Updated: 2026/11/17 18:39:25 by nkalff        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	ft_specifier(char fs, va_list arg)
 {
-	if (fs == 'c')
+	if (fs == '%')
+		return (ft_putchar('%'));
+	else if (fs == 'c')
 		return (ft_putchar(va_arg(arg, int)));
 	else if (fs == 's')
 		return (ft_putstr(va_arg(arg, char *)));
