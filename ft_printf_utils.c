@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf_utils_int.c                              :+:    :+:            */
+/*   ft_printf_utils.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nkalff <nkalff@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/07 20:05:26 by nkalff        #+#    #+#                 */
-/*   Updated: 2026/11/16 13:51:00 by nkalff        ########   odam.nl         */
+/*   Updated: 2026/11/17 15:12:49 by nkalff        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_putnbr_base(long long nbr, const char *base)
 	return (count);
 }
 
-int	ft_putptr(unsigned long address)
+int	ft_putpointr(uintptr_t address)
 {
 	int	count;
 
@@ -77,7 +77,7 @@ int	ft_putptr(unsigned long address)
 	count = 0;
 	if (address >= 16)
 	{
-		count += ft_putptr(address / 16);
+		count += ft_putpointr(address / 16);
 	}
 	else
 	{

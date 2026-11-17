@@ -4,9 +4,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 HEADER = ft_printf.h
 
-SRC = 	ft_printf_utils_char.c \
-		ft_printf_utils_int.c \
-		#ft_printf.c 
+SRC = 	ft_printf_utils.c \
+		ft_printf.c 
 
 OBJ = $(SRC:.c=.o)
 
@@ -22,7 +21,7 @@ clean:
 	rm -f $(OBJ)
 
 fclean:
-	rm -f $(NAME)
+	rm -f $(NAME) $(OBJ)
 
 re: fclean all
 
@@ -30,7 +29,7 @@ re: fclean all
 
 
 # ------------------------------------- Test Files
-TEST_DIR = assets
+TEST_DIR = ../backup_1a_Milestone
 
 TEST_FILES = 01test.c 02test.c 03test.c 04test.c
 
@@ -45,6 +44,6 @@ $(TEST_EXE): %: %.c $(NAME) $(HEADER)
 	./$@
 
 cleantest:
-	rm -f $(TEST_EXE)
+	rm -f $(TEST_EXE) $(OBJ) $(NAME)
 
 .PHONY: test cleantest
