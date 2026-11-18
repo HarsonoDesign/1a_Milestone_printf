@@ -17,7 +17,7 @@ int	ft_putchar(char c)
 	return (write(1, &c, 1));
 }
 
-int	ft_putstr(const char *str)
+int	ft_putstring(const char *str)
 {
 	int	count;
 
@@ -72,7 +72,7 @@ int	ft_putpointr(uintptr_t address)
 
 	if (!address)
 	{
-		return (ft_putstr("(nil)"));
+		return (ft_putstring("(nil)"));
 	}
 	count = 0;
 	if (address >= 16)
@@ -81,7 +81,7 @@ int	ft_putpointr(uintptr_t address)
 	}
 	else
 	{
-		count += ft_putstr("0x");
+		count += ft_putstring("0x");
 	}
 	count += ft_putchar(BASE_HEX_LOW[address % 16]);
 	return (count);

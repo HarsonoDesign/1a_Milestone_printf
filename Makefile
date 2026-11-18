@@ -4,8 +4,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 HEADER = ft_printf.h
 
-SRC = 	ft_printf_utils.c \
-		ft_printf.c 
+SRC = ft_printf.c ft_printf_utils.c
 
 OBJ = $(SRC:.c=.o)
 

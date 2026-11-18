@@ -13,7 +13,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-// <unistd.h> write, <stdint.h> uintptr_t, <stdarg.h> va_list 
+// <unistd.h> write - <stdint.h> uintptr_t - <stdarg.h> va_list 
 
 # include <unistd.h>
 # include <stdint.h>
@@ -26,7 +26,7 @@
 int			ft_specifier(char fs, va_list arg);
 int			ft_printf(const char *format, ...);
 int			ft_putchar(char c);
-int			ft_putstr(const char *str);
+int			ft_putstring(const char *str);
 long long	ft_baselen(const char *base);
 int			ft_putnbr_base(long long nbr, const char *base);
 int			ft_putpointr(uintptr_t address);
