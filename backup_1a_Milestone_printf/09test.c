@@ -17,6 +17,8 @@ int	main(void)
 
 	ft_printf("return = %d\n\n", ft_printf(NULL));
 
+	ft_printf("~~~~~%d\n", ft_printf("%c", 0));
+
 	// ft_printf();
 
 	// ft_printf("\n deze %s string bestaat niet \n",);
@@ -34,6 +36,8 @@ int	main(void)
 	printf("return = %d\n\n", printf(NULL));
 
 	printf("|hex : |%x|\n\n", 'C');
+
+	ft_printf("~~~~~%d\n", ft_printf("%c", 0));
 
 	// printf("\n deze %s string bestaat niet \n",);
 
