@@ -6,9 +6,13 @@
 /*   By: nkalff <nkalff@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/11/07 20:05:26 by nkalff        #+#    #+#                 */
-/*   Updated: 2026/11/17 18:44:35 by nkalff        ########   odam.nl         */
+/*   Updated: 2026/11/20 18:38:08 by nkalff        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+// bij "" of "0": (nbr % baselen) of (delen door nul) gaat fout. 
+// bij 1 oneodige loop in de recursie
+// Een check vooraf (if (baselen <= 1) return (0);)
 
 #include "ft_printf.h"
 
@@ -58,6 +62,8 @@ int	ft_putnbr_base(long long nbr, const char *base)
 		nbr = -nbr;
 	}
 	baselen = ft_baselen(base);
+	if (baselen <= 1)
+		return (0);
 	if (nbr >= baselen)
 	{
 		count += ft_putnbr_base((nbr / baselen), base);
